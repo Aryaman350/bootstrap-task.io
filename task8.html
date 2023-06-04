@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    .btn-submit {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Registration Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+      </div>
+      <div class="form-group">
+        <label for="hobbies">Hobbies:</label>
+        <select multiple class="form-control" id="hobbies" required>
+          <option value="reading">Reading</option>
+          <option value="music">Music</option>
+          <option value="sports">Sports</option>
+          <option value="art">Art</option>
+        </select>
+      </div>
+      <button type="submit" id="submitBtn" class="btn btn-danger btn-submit" disabled>Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // Enable the submit button when all required fields are filled
+    const form = document.querySelector('form');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('input', function() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const hobbies = document.getElementById('hobbies').value;
+
+      if (name !== '' && email !== '' && password !== '' && hobbies.length > 0) {
+        submitBtn.disabled = false;
+      } else {
+        submitBtn.disabled = true;
+      }
+    });
+
+    // Highlight empty fields on form submission
+    form.addEventListener('submit', function(event) {
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const hobbies = document.getElementById('hobbies');
+
+      if (name.value.trim() === '') {
+        name.classList.add('is-invalid');
+        event.preventDefault();
+      } else {
+        name.classList.remove('is-invalid');
+      }
+
+      if (email.value.trim() === '') {
+        email.classList.add('is-invalid');
+        event.preventDefault();
+      } else {
+        email.classList.remove('is-invalid');
+      }
+
+      if (password.value.trim() === '') {
+        password.classList.add('is-invalid');
+        event.preventDefault();
+      } else {
+        password.classList.remove('is-invalid');
+      }
+
+      if (hobbies.value.length === 0) {
+        hobbies.classList.add('is-invalid');
+        event.preventDefault();
+      } else {
+        hobbies.classList.remove('is-invalid');
+      }
+    });
+
+    // Highlight empty fields when the submit button is clicked
+    submitBtn.addEventListener('click', function() {
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const hobbies = document.getElementById('hobbies');
+
+      if (name.value.trim() === '') {
+        name.classList.add('is-invalid');
+      } else {
+        name.classList.remove('is-invalid');
+      }
+
+      if (email.value.trim() === '') {
+        email.classList.add('is-invalid');
+      } else {
+        email.classList.remove('is-invalid');
+      }
+
+      if (password.value.trim() === '') {
+        password.classList.add('is-invalid');
+      } else {
+        password.classList.remove('is-invalid');
+      }
+
+      if (hobbies.value.length === 0) {
+        hobbies.classList.add('is-invalid');
+      } else {
+        hobbies.classList.remove('is-invalid');
+      }
+    });
+  </script>
+</body>
+</html>

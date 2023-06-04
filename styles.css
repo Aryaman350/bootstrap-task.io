@@ -1,0 +1,44 @@
+.thin-bar {
+  height: 1px;
+  background-color: lightblue;
+}
+.navbar {
+  padding: 0;
+  margin: 0;
+}
+.navbar .navbar-nav {
+  margin: 0;
+  padding: 0;
+}
+.navbar .navbar-nav .nav-item {
+  margin-left: 10px;
+}
+.navbar .navbar-nav.ml-auto {
+  justify-content: flex-end;
+}
+.comments-container {
+  display: flex;
+  height: calc(100vh - 54px); /* Subtract navbar height */
+}
+.user-comments {
+  width: 80%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.other-comments {
+  width: 20%;
+  background-color: darkgrey;
+  padding: 20px;
+  color: white;
+}
+.box {
+  background-color: green;
+  color: white;
+  border: 0.05px solid white;
+}
+.row > div:first-child .box {
+  border-left: none;
+}
+.row > div:last-child .box {
+  border-right: none;
+}
